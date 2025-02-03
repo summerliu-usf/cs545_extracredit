@@ -6,21 +6,12 @@ public class reverse_linked_list {
     // New head is the original tail. We can iterate through the list but change direction
     // of the pointers, node should point to the one before it
 
-    public class ListNode {
-           int val;
-           ListNode next;
-           ListNode() {}
-           ListNode(int val) { this.val = val; }
-           ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-     }
-
     class Solution {
         public ListNode reverseList(ListNode head) {
             ListNode current = head;
             ListNode prev = null;
-            ListNode next = null;
             while (current != null) {
-                next = current.next; //saves the next node so that we can continue looping
+                ListNode next = current.next; //saves the next node so that we can continue looping
                 current.next = prev; // the node after current points at current
                 prev = current; //move prev cursor to next node
                 current = next; // move curr cursor to next node
